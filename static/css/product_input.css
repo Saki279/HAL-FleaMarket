@@ -1,0 +1,402 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+body{
+  text-align: center;
+  background-color: rgba(207, 179, 113, 0.299);
+  overflow-x: hidden;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+div#wrap{
+/*  width: 1000px;*/
+  margin: 0 auto 0 auto;
+/*  padding: 0 30px 0 30px;*/
+  box-sizing: border-box;/*paddingとborderを内側に収める*/
+  /* background-color: #fff;
+  box-shadow:0px 0px 50px #000; */
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+body {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+
+#input{
+  width: 1200px;
+  margin: auto;
+}
+
+h1{
+  position: relative;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 70px;
+  margin-top: 75px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+  
+h2{
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+  color: #827762;
+  margin-top: 5px;
+}
+
+
+.detail{
+    width: 100%;
+    position: relative;
+}
+.image{
+    width: 100%;
+    display: flex;
+}
+.product{
+    display: flex;
+    margin-left: 430px;
+}
+.image figure img{
+    width: 280px;
+    margin: 60px 35px;
+    border-radius: 10px;
+}
+
+.container {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 5px;
+  background-color: rgba(16, 86, 82, 0.071);
+  position: absolute;
+  top: 80px;
+  left: 7%;
+}
+  
+.header {
+  flex: 1;
+  width: 100%;
+  border: 2px dashed rgba(16, 86, 82, .75);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+  
+.header svg {
+  height: 100px;
+}
+  
+.header p {
+  text-align: center;
+  color: black;
+}
+  
+.footer {
+  background-color: rgba(16, 86, 82, 0.137);
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: black;
+  border: none;
+}
+  
+.footer svg {
+  height: 130%;
+  fill: rgba(16, 86, 82, .75);
+  background-color: rgba(70, 66, 66, 0.103);
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
+}
+  
+.footer p {
+  flex: 1;
+  text-align: center;
+}
+  
+#file {
+  display: none;
+}
+
+h3,h4,h5,h6{
+  text-align: left;
+  font-size: 30px;
+  margin: 70px 0 0 105px;
+  text-decoration: underline;
+}
+
+
+#dt{
+  width: 250px;
+  height: 34px;
+  padding: 0 0.7em;
+  margin-top: 23px;
+  position: absolute;
+  left: 40px;
+  font-size: 90%;
+}
+#dt:focus{
+  outline: none;
+}
+/* スタイル崩れを防ぐ */
+ ul, ol, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* 「次」と「前」を表示させます */
+.calendar-arrow {
+  width:50px;
+}
+.calendar-arrow span {
+  font: 500 16px sans-seri;
+}
+
+/* カスタムクラス */
+.customCalendar {
+  background-color:#fff;
+  margin-bottom: 20px;
+} 
+
+footer{
+  height: 100px;
+}
+
+.clockpicker{
+  position: absolute;
+  right: 30%;
+  margin-top: 30px;
+}
+
+h5{
+  margin-top: 250px;
+}
+
+
+.mybox{
+	background-color: #ffffffa9;	/* 背景色 */
+	border: 1px solid #ccc; /* 線の太さ・種類・色 */
+	box-shadow:1px 1px 6px 0px #ccc;
+	-moz-box-shadow:1px 1px 6px 0px #ccc;
+	-webkit-box-shadow:1px 1px 6px 0px #ccc;
+	-o-box-shadow:1px 1px 6px 0px #ccc;
+	margin: 20px 25px; /* 外側の余白 上下・左右 */
+  margin-top: 80px;
+	padding: 30px 10px 20px 10px; /* 内側の余白 上・右・下・左 */
+	position: relative;
+	z-index: 0;
+  height: 400px;
+}
+.mybox:after{
+	background-color: #d9ccb3; /* マステ部分の色1 */
+	background-image: linear-gradient(45deg, #dfd4be 25%, transparent 25%, transparent 75%, #dfd4be 75%, #dfd4be), linear-gradient(45deg, #dfd4be 25%, transparent 25%, transparent 75%, #dfd4be 75%, #dfd4be); /* マステ部分の色2 */
+	background-position: 0 0, 12px 12px;
+	background-size: 24px 24px;
+	border-left: 2px dotted rgba(255,255,255,0.9);
+	border-right: 2px dotted rgba(255,255,255,0.9);
+	box-shadow: 0 0 5px rgba(255,255,255,0.5);
+	content: '画像選択';
+  font-size: 26px;
+  font-weight: 500;
+	display: block;
+	margin: 0 0 10px 0;
+	padding: 20px 40px;
+	color: #fff;  /* マステ部分文字色 */
+	text-align: center;
+	position: absolute;
+	top: -20px;
+	left: 30px;
+	transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-webkit-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+}
+
+.mybox2{
+	background-color: #ffffffa9;	/* 背景色 */
+	border: 1px solid #ccc; /* 線の太さ・種類・色 */
+	box-shadow:1px 1px 6px 0px #ccc;
+	-moz-box-shadow:1px 1px 6px 0px #ccc;
+	-webkit-box-shadow:1px 1px 6px 0px #ccc;
+	-o-box-shadow:1px 1px 6px 0px #ccc;
+	margin: 20px 25px; /* 外側の余白 上下・左右 */
+  margin-top: 100px;
+	padding: 30px 10px 20px 10px; /* 内側の余白 上・右・下・左 */
+	position: relative;
+	z-index: 0;
+  height: 730px;
+}
+.mybox2:after{
+	background-color: #d9ccb3; /* マステ部分の色1 */
+	background-image: linear-gradient(45deg, #dfd4be 25%, transparent 25%, transparent 75%, #dfd4be 75%, #dfd4be), linear-gradient(45deg, #dfd4be 25%, transparent 25%, transparent 75%, #dfd4be 75%, #dfd4be); /* マステ部分の色2 */
+	background-position: 0 0, 12px 12px;
+	background-size: 24px 24px;
+	border-left: 2px dotted rgba(255,255,255,0.9);
+	border-right: 2px dotted rgba(255,255,255,0.9);
+	box-shadow: 0 0 5px rgba(255,255,255,0.5);
+	content: '出品情報';
+  font-size: 26px;
+  font-weight: 500;
+	display: block;
+	margin: 0 0 10px 0;
+	padding: 20px 40px;
+	color: #fff;  /* マステ部分文字色 */
+	text-align: center;
+	position: absolute;
+	top: -20px;
+	left: 30px;
+	transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-webkit-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+}
+
+
+.button {
+  appaerance: none;
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.modal__body {
+  padding: 1rem 2rem;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.modal__footer {
+  padding: 0 1.5rem 1.5rem;
+  margin-top: 20px;
+}
+
+.modal__footer a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.modal__title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s ease;
+}
+
+.button--icon:focus, .button--icon:hover {
+  background-color: #ededed;
+}
+
+.button--primary {
+  background-color: rgba(16, 86, 82, .75);
+  color: #FFF;
+  padding: 1rem 1.9rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.button--primary:hover {
+  background-color: rgba(8, 50, 49, 0.75);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .input + .input {
+  margin-top: 1.75rem;
+} */
+
+.input__label {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.input__field {
+  display: block;
+  margin-top: 0.5rem;
+  border: 1px solid #DDD;
+  border-radius: 0.25rem;
+  padding: 0.75rem 0.75rem;
+  transition: 0.15s ease;
+}
+
+.input__field:focus {
+  outline: none;
+  border-color: rgba(16, 86, 82, 0.71);
+  box-shadow: 0 0 0 1px rgba(16, 86, 82, 0.71), 0 0 0 4px rgba(16, 86, 82, 0.25);
+}
+
+.input__field--textarea {
+  min-height: 100px;
+  max-width: 100%;
+}
+
+.input__description {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  color: #8d8d8d;
+}
+
+.time{
+  display: flex;
+  margin-bottom: 77px;
+}
+
+.day{
+  margin-top: 28px;
+  margin-left: 0;
+}
+
+.price{
+  display: flex;
+  margin: 50px 20px 40px 0;
+  /* justify-content: space-between; */
+}
+
+.money{
+  height: 34px;
+}
+
+.price>div{
+  margin-right: 80px;
+}
+
+.time>div{
+  margin-right: 180px;
+}

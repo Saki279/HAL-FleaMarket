@@ -1,0 +1,548 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+body{
+  text-align: center;
+  background-color: rgba(207, 179, 113, 0.299);
+  overflow-x: hidden;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+div#wrap{
+/*  width: 1000px;*/
+  margin: 0 auto 0 auto;
+/*  padding: 0 30px 0 30px;*/
+  box-sizing: border-box;/*paddingとborderを内側に収める*/
+  /* background-color: #fff;
+  box-shadow:0px 0px 50px #000; */
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+body {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+/* body a {
+  text-decoration: none;
+  color: white;
+} */
+
+
+
+#m-upload{
+  width: 1200px;
+  margin: auto;
+}
+
+/* チェックマーク */
+svg {
+  width: 120px;
+  display: block;
+  margin: 40px auto 0;
+  margin-top: 50px;
+}
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+.path.circle {
+  -webkit-animation: dash 1.2s ease-in-out;
+  animation: dash 0.9s ease-in-out;
+}
+.path.line {
+  stroke-dashoffset: 1000;
+  -webkit-animation: dash 1.2 0.45s ease-in-out forwards;
+  animation: dash 1.2s 0.45s ease-in-out forwards;
+}
+.path.check {
+  stroke-dashoffset: -100;
+  -webkit-animation: dash-check 1.2s 0.45s ease-in-out forwards;
+  animation: dash-check 1.2s 0.45s ease-in-out forwards;
+}
+p {
+  text-align: center;
+  margin: 20px 0 60px;
+  font-size: 1.25em;
+}
+p.success {
+  margin-top: 80px;
+  margin-left: 20px;
+  color: #696969;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.check{
+  display: flex;
+}
+.line_left{
+  width: 200px;
+  border-bottom: 2px solid #929191;
+  margin-left: 270px;
+}
+.line_right{
+  width: 200px;
+  border-bottom: 2px solid #929191;
+  margin-right: 270px;
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+
+/* ホームボタン */
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+ }
+ 
+ button.learn-more {
+  width: 12rem;
+  height: auto;
+ }
+ 
+ button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: rgb(216, 197, 152);
+  border-radius: 1.625rem;
+ }
+ 
+ button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+ }
+ 
+ button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+ }
+ 
+ button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+ }
+ 
+ button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #515151;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+ }
+ 
+ button:hover .circle {
+  width: 100%;
+ }
+ 
+ button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+ }
+ 
+ button:hover .button-text {
+  color: #fff;
+ }
+
+ .learn-more a{
+  text-decoration: none;
+  color: #515151;
+}
+
+
+/* 商品 */
+.contain{
+    width: 100%;
+    position: relative;
+    /* margin-top: 50px; */
+}
+.container{
+  width: 1100px;
+  position: absolute;
+  top: 270px;
+  left: 20px;
+  right: 0;
+  transform: translateY(-50%);
+  margin: auto;
+  display: flex;
+  margin-bottom: 200px;
+}
+
+h1{
+  position: relative;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 70px;
+  margin-top: 150px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h2{
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+  color: #827762;
+  margin-top: 5px;
+}
+
+.container .card {
+  margin: 0 auto;
+  display: inline-block;
+  margin-right: 30px;
+  /* transform: scale(0); */
+  width: 280px;
+  text-align: center;
+  position: relative;
+  /* transition: all 0.2s;
+  cursor: pointer;
+  opacity: 0.5; */
+  box-shadow: 0px 17px 46px -10px #777777;
+  height: 390px;
+  border-radius: 14px;
+}
+
+.container .card:nth-of-type(2n+1) {
+  background-color: #d79e8c;
+}
+.container .card:nth-of-type(2n) {
+  background-color: #a8b5c1;
+}
+
+.container .card:hover .card_inner__header img {
+  left: -50px;
+  transition: all 3.4s linear;
+}
+.container .card:hover .card_inner__cta button {
+  transform: scale(1);
+}
+
+.container .card{
+  opacity: 1;
+}
+.container .card:hover {
+  opacity: 1;
+}
+.container .card_inner__circle {
+  overflow: hidden;
+  width: 70px;
+  position: absolute;
+  background: #F1F0ED;
+  z-index: 10;
+  height: 70px;
+  border-radius: 100px;
+  left: 0;
+  box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.28);
+  right: 0;
+  margin: auto;
+  border: 4px solid white;
+  top: 200px;
+}
+.container .card_inner__circle img {
+  height: 26px;
+  position: relative;
+  top: 17px;
+  transition: all 0.2s;
+}
+.container .card_inner__header {
+  height: 230px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  overflow: hidden;
+}
+.container .card_inner__header img {
+  width: 120%;
+  position: relative;
+  top: -30px;
+  left: 0;
+  transition: all 0.1s linear;
+}
+.container .card_inner__content {
+  padding: 20px;
+}
+.container .card_inner__content .price {
+  color: white;
+  font-weight: 800;
+  font-size: 22px;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
+  margin-bottom: 7px;
+}
+.container .card_inner__content .text {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 100;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 16px;
+}
+.container .card_inner__content .title {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.64);
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 12px 0;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  padding-left: 80px;
+ }
+
+ .cta a{
+  text-decoration: none;
+ }
+
+ .cta::after {
+  display: none;
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 60%;
+  height: 2px;
+  background: #696969;
+  bottom: 10px;               /*アンダーラインがaタグの下端から現れる*/
+  left: 75px;
+  transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+  transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+  transition: transform 0.3s; /*変形の時間*/
+  }
+  
+  .cta:hover::after {
+    display: block;
+    transform: scale(1, 1);     /*ホバー後、x軸方向に1（相対値）伸長*/
+    transition: transform 0.3s;
+  }
+ 
+ .cta span {
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #696969;
+  margin-right: 15px;
+ }
+ 
+ .cta svg {
+  position: absolute;
+  bottom: 18px;
+  left: 107px;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #696969;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+ }
+ 
+ .cta:hover:before {
+  width: 100%;
+  background: #b1dae7;
+ }
+ 
+ .cta:hover svg {
+  transform: translateX(0);
+ }
+ 
+ .cta:active {
+  transform: scale(0.95);
+ }
+
+@-webkit-keyframes intro {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1.06);
+  }
+  50% {
+    transform: scale(0.965);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes intro {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1.06);
+  }
+  50% {
+    transform: scale(0.965);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* #footer{
+  width: 100%;
+  height: 20px;
+} */
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,600);
+
+#steps {
+  width: 550px;
+  margin: 50px auto;
+}
+
+.step {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  display: inline-block;
+  border: 4px solid;
+  border-color: transparent;
+  border-radius: 50%;
+  color: #cdd0da;
+  font-weight: 600;
+  text-align: center;
+  line-height: 35px;
+}
+
+.step:first-child {
+  line-height: 40px;
+}
+
+.step:nth-child(n+2) {
+  margin: 0 0 0 100px;
+  transform: translate(0, -4px);
+}
+
+.step:nth-child(n+2):before {
+  width: 75px;
+  height: 3px;
+  display: block;
+  background-color: white;
+  transform: translate(-95px, 21px);
+  content: "";
+}
+
+.step:after {
+  width: 150px;
+  display: block;
+  transform: translate(-55px, 3px);
+  color: #818698;
+  content: attr(data-desc);
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.step:first-child:after {
+  transform: translate(-55px, -1px);
+}
+
+.step.active {
+  border-color: #73b5e8;
+  color: #73b5e8;
+}
+
+.step.active:before {
+  background: linear-gradient(to right, #58bb58 0%, #73b5e8 100%);
+}
+
+.step.active:after {
+  color: #73b5e8;
+}
+
+.step.done {
+  background-color: #58bb58;
+  border-color: #58bb58;
+  color: white;
+}
+
+.step.done:before {
+  background-color: #58bb58;
+}

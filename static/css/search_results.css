@@ -1,0 +1,308 @@
+@charset "utf-8";
+
+
+/* 共通のスタイル */
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+body{
+  text-align: center;
+  background-color: rgba(207, 179, 113, 0.299);
+  overflow-x: hidden;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+div#wrap{
+  margin: 0 auto 0 auto;
+  box-sizing: border-box;/*paddingとborderを内側に収める*/
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+body {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+/* search_results.html */
+#m-result{
+    /* width: 1200px;
+    margin: auto; */
+    width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  }
+
+
+  /* 商品一覧 */
+  #m-result  .contain{
+      width: 100%;
+      position: relative;
+      margin-top: 270px;
+  }
+  
+  #m-result .container{
+    /* width: 1100px; */
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    margin: auto;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 90px;
+  }
+
+  #m-result .container:nth-child(3){
+    /* width: 1100px; */
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    margin: auto;
+    display: flex;
+    margin-top: 30px;
+  }
+  
+  #m-result .container .card {
+    margin: 0 auto;
+    display: inline-block;
+    margin-right: 30px;
+    transform: scale(0);
+    width: 25%;
+    text-align: center;
+    position: relative;
+    transition: all 0.2s;
+    cursor: pointer;
+    opacity: 0.5;
+    box-shadow: 0px 17px 46px -10px #777777;
+    height: 390px;
+    border-radius: 14px;
+  }
+  
+  #m-result .container .card:nth-of-type(1) {
+    -webkit-animation: intro 1s 0.1s forwards;
+            animation: intro 1s 0.1s forwards;
+  }
+  #m-result .container .card:nth-of-type(2) {
+    -webkit-animation: intro 1s 0.2s forwards;
+            animation: intro 1s 0.2s forwards;
+  }
+  #m-result .container .card:nth-of-type(3) {
+    -webkit-animation: intro 1s 0.3s forwards;
+            animation: intro 1s 0.3s forwards;
+  }
+  #m-result .container .card:nth-of-type(4) {
+    -webkit-animation: intro 1s 0.4s forwards;
+            animation: intro 1s 0.4s forwards;
+  }
+  
+  #m-result .container .card:nth-of-type(2n+1) {
+    /* background: -webkit-linear-gradient(45deg, #d79e8c 0%, #f7b695 100%); */
+    background-color: #d79e8c;
+  }
+  #m-result .container .card:nth-of-type(2n) {
+    /* background: -webkit-linear-gradient(45deg, #d4dccc 0%, #A3E3C3 100%); */
+    background-color: #a8b5c1;
+  }
+  
+  #m-result .container .card:hover .card_inner__header img {
+    left: -50px;
+    transition: all 3.4s linear;
+  }
+  #m-result .container .card:hover .card_inner__cta button {
+    transform: scale(1);
+  }
+  
+  #m-result .container .card{
+    opacity: 1;
+  }
+  #m-result .container .card:hover {
+    opacity: 1;
+  }
+  /* アカウント画像 */
+  #m-result .container .card_inner__circle {
+    overflow: hidden;
+    width: 70px;
+    position: absolute;
+    background: #F1F0ED;
+    z-index: 10;
+    height: 70px;
+    border-radius: 100px;
+    left: 0;
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.28);
+    right: 0;
+    margin: auto;
+    border: 4px solid white;
+    top: 200px;
+  }
+  #m-result .container .card_inner__circle img {
+    height: 26px;
+    position: relative;
+    top: 17px;
+    transition: all 0.2s;
+  }
+  /* 写真の部分 */
+  #m-result .container .card_inner__header {
+    height: 230px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    overflow: hidden;
+  }
+  #m-result .container .card_inner__header img {
+    width: 120%;
+    position: relative;
+    top: -20px;
+    left: 0;
+    transition: all 0.1s linear;
+  }
+  #m-result .container .card_inner__content {
+    padding: 20px;
+  }
+  #m-result .container .card_inner__content .price {
+    color: white;
+    font-weight: 800;
+    font-size: 22px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
+    margin-bottom: 7px;
+  }
+  #m-result .container .card_inner__content .text {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 100;
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 16px;
+  }
+  #m-result .container .card_inner__content .title {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.64);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 27px;
+    letter-spacing: 1px;
+  }
+  
+  #m-result .container .card_inner__content .cta {
+    width: 90%;
+    position: relative;
+    margin: auto;
+    padding: 12px 0;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    padding-left: 20px;
+   }
+  
+   #m-result .container .card_inner__content .cta a{
+    text-decoration: none;
+   }
+  
+   #m-result .container .card_inner__content .cta::after {
+    display: none;
+    position: absolute;
+    left: 0;
+    content: '';
+    width: 60%;
+    height: 2px;
+    background: #696969;
+    bottom: 7px;               /*アンダーラインがaタグの下端から現れる*/
+    left: 75px;
+    transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+    transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+    transition: transform 0.3s; /*変形の時間*/
+    }
+    
+  
+    #m-result .container .card_inner__content .cta:hover::after {
+      display: block;
+      transform: scale(1, 1);     /*ホバー後、x軸方向に1（相対値）伸長*/
+      transition: transform 0.3s; /*変形の時間*/
+    }
+   
+    #m-result .container .card_inner__content .cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #696969;
+    margin-left: 50px;
+   }
+   
+   #m-result .container .card_inner__content .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 5px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #696969;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+   }
+   
+   #m-result .container .card_inner__content .cta:hover:before {
+    width: 100%;
+    background: #b1dae7;
+   }
+   
+   #m-result .container .card_inner__content .cta:hover svg {
+    transform: translateX(0);
+   }
+   
+   #m-result .container .card_inner__content .cta:active {
+    transform: scale(0.95);
+   }
+  
+  
+  @-webkit-keyframes intro {
+    0% {
+      transform: scale(0);
+    }
+    25% {
+      transform: scale(1.06);
+    }
+    50% {
+      transform: scale(0.965);
+    }
+    75% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes intro {
+    0% {
+      transform: scale(0);
+    }
+    25% {
+      transform: scale(1.06);
+    }
+    50% {
+      transform: scale(0.965);
+    }
+    75% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  
+

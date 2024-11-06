@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+/* 共通のスタイル */
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+body{
+  text-align: center;
+  background-color: rgba(207, 179, 113, 0.299);
+  overflow-x: hidden;
+}
+
+img{
+  vertical-align: bottom;
+}
+
+div#wrap{
+/*  width: 1000px;*/
+  margin: 0 auto 0 auto;
+/*  padding: 0 30px 0 30px;*/
+  box-sizing: border-box;/*paddingとborderを内側に収める*/
+  /* background-color: #fff;
+  box-shadow:0px 0px 50px #000; */
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+body {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+
+#m-conf{
+  width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+
+.purchase{
+  width: 100%;
+  display: flex;
+}
+.purchase img{
+  width: 300px;
+  margin: auto;
+} 
+
+h1{
+  position: relative;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 70px;
+  margin-top: 75px;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h2{
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+  color: #827762;
+  margin-top: 5px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,600);
+
+#steps {
+  width: 550px;
+  margin: 50px auto;
+  position: absolute;
+  top: 230px;
+  /* 中央に配置する */
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.step {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  display: inline-block;
+  border: 4px solid;
+  border-color: transparent;
+  border-radius: 50%;
+  color: #cdd0da;
+  font-weight: 600;
+  text-align: center;
+  line-height: 35px;
+}
+
+.step:first-child {
+  line-height: 40px;
+}
+
+.step:nth-child(n+2) {
+  margin: 0 0 0 100px;
+  transform: translate(0, -4px);
+}
+
+.step:nth-child(n+2):before {
+  width: 75px;
+  height: 3px;
+  display: block;
+  background-color: white;
+  transform: translate(-95px, 21px);
+  content: "";
+}
+
+.step:after {
+  width: 150px;
+  display: block;
+  transform: translate(-55px, 3px);
+  color: #818698;
+  content: attr(data-desc);
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.step:first-child:after {
+  transform: translate(-55px, -1px);
+}
+
+.step.active {
+  border-color: #73b5e8;
+  color: #73b5e8;
+}
+
+.step.active:before {
+  background: linear-gradient(to right, #58bb58 0%, #73b5e8 100%);
+}
+
+.step.active:after {
+  color: #73b5e8;
+}
+
+.step.done {
+  background-color: #58bb58;
+  border-color: #58bb58;
+  color: white;
+}
+
+.step.done:before {
+  background-color: #58bb58;
+}
+
+
+
+/* Body */
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 0px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 300px;
+  margin-top: 125px;
+  transform: scale(1.6, 1.6);
+}
+
+hr {
+  height: 1px;
+  background-color: rgba(16, 86, 82, .75);
+  border: none;
+}
+
+.card {
+  width: 500px;
+  background: rgb(255, 250, 235);
+  /* box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1); */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* padding-left: 20px; */
+  border-bottom: 1px solid rgba(16, 86, 82, .75);
+  font-weight: 700;
+  font-size: 17px;
+  color: #000000;
+  margin: 10px auto;
+  /* margin-left: 40%; */
+  padding-left: 40%;
+}
+
+/* Cart */
+.cart {
+  border-radius: 19px 19px 0px 0px;
+}
+
+.cart .details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 20px 20px;
+}
+
+.cart .details .detail {
+  display: grid;
+  gap: 5px;
+}
+
+.cart .details .detail span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+  display: block;
+  text-align: left;
+  line-height: 1.8em;
+}
+
+.cart .details .detail p {
+  font-size: 11px;
+  font-weight: 600;
+  color: #000000;
+  text-align: left;
+  line-height: 1.6em;
+}
+
+
+/* Promo */
+.promo form {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 10px;
+  padding: 0px;
+}
+
+.promo form img{
+  width: 120px;
+}
+
+.promo form p{
+  margin-top: 15px;
+}
+
+.productname{
+  margin-bottom: 20px;
+  /* display: flex; */
+}
+
+.productname p:nth-child(1){
+  width: 50px;
+}
+.productname p:nth-child(2){
+  margin-left: 10px;
+}
+
+.quantity p:nth-child(1){
+  width: 50px;
+}
+.quantity p:nth-child(2){
+  margin-left: 10px;
+}
+.cart .details .detail .promo .form .item{
+  font-size: 9.5px;
+  line-height: 10px;
+}
+.cart .details .detail .promo .form .name{
+  font-size: 13.5px;
+  line-height: 10px;
+  margin: 15px 0;
+  margin-left: 15px;
+}
+
+/* Checkout */
+.payments .payment {
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  padding: 0px;
+  gap: 5px;
+}
+
+.payments .payment span:nth-child(odd) {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  margin: auto auto auto 0;
+}
+
+.payments .payment span:nth-child(even) {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+  margin: auto 0 auto auto;
+}
+
+.checkout .total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px 17px 20px;
+  background-color: rgba(16, 86, 82, .5);
+}
+.totalprice {
+  position: relative;
+  font-size: 17px;
+  color: #2B2B2F;
+  font-weight: 900;
+  margin-top: 5px;
+}
+.price {
+  position: relative;
+  font-size: 20px;
+  color: #2B2B2F;
+  font-weight: 900;
+  margin-top: 5px;
+}
+
+
+/* 次のページへ行くボタン */
+.btn{
+  width:270px;
+  height:45px;
+  line-height:45px;
+  margin: 0 auto 0 auto;
+  position: relative;
+}
+.btn a{
+  display:block;
+  position: absolute;
+  bottom: 50px;
+  width:100%;
+  height:100%;
+  text-decoration: none;
+  background:rgba(31, 146, 140, 0.53);
+  text-align:center;
+  border:2px solid #ffffff;
+  color:#000;
+  font-size:20px;
+  font-weight:bold;
+  border-radius:50px;
+  -webkit-border-radius:50px;
+  -moz-border-radius:50px;
+  box-shadow:0px 0px 0px 4px rgba(13, 74, 71, 0.55);
+  transition: all 0.5s ease;
+}
+.btn a:hover{
+  background:rgba(25, 127, 122, 0.55);
+  color:#fff;
+  box-shadow:0px 0px 0px 4px rgba(28, 143, 137, 0.55) ;
+}
+
+
+footer{
+  height: 100px;
+}
