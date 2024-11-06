@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <main id="m-profile">
+            <h1>Profile</h1>
+            <h2>プロフィール</h2>
+
+            <div class="myaccount">
+              {% if profile_data %}
+                    <div class="my-icon">
+                      <div class="pro_icon">
+                        <img src="{{ profile_data.profile_image }}" alt="#">
+                      </div>
+                      <div style="margin: auto;">
+                        <p>{{username}}</p>
+                        <p class="nickname">{{ profile_data.bio }}</p>
+                      </div>
+                    </div>
+                    <form action="/profile_edit">
+                        <div class="edit">
+                            <input type="submit" value="プロフィール変更">
+                        </div>
+                    </form>
+                {% else %}
+                    <form action="/profile_edit">
+                        <div class="edit">
+                            <input type="submit" value="プロフィール変更">
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+            <p class="comment"></p>
+
+            <div class="contain">
+            {% for item in users_items %}
+                <!-- <li>
+                    <h3>{{ item.name }}</h3>
+                    <p>Price: ${{ item.price }}</p>
+                    <img src="{{ item.image_url }}" alt="{{ item.name }} Image">
+                </li> -->
+                {% if loop.index % 4 == 1 %}
+                        {% if loop.index != 1 and loop.index // 4 % 2 == 1 %}
+                            <div class="search_container"></div>
+                        {% endif %}
+                        <div class="search_container">
+                      {% endif %}
+                        
+                      <div class="card">
+                        <div class='card_inner'>
+                          <!-- {{item.items_id}} -->
+                          {% if item.stock == 0 %}
+                            <div class="mask-soldout" id="soldout"><div class="soldout"><p>SOLD OUT</p></div></div>
+                          {% endif %}
+                          <a href="{{ url_for('product_detail', product_id=item.items_id) }}" style="text-decoration: none;">
+                            <div class='card_inner__circle'>
+                              <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                            </div>
+                            <div class='card_inner__header'>
+                              <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                            </div>
+                            <div class='card_inner__content'>
+                              <div class='title'>{{item.name}}</div>
+                              <div class='price'>¥{{item.price}}</div>
+                              <button class="cta">
+                                  <span>View more</span>
+                                  <svg viewBox="0 0 13 10" height="10px" width="15px">
+                                    <path d="M1,5 L11,5"></path>
+                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                  </svg>
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {% if loop.index % 4 == 0 or loop.last %}
+                        </div>
+                      {% endif %}
+            {% endfor %}
+
+            <form action="/logout">
+                <input type="submit" value="ログアウト">
+            </form>
+        </main>
+    {% endblock %}
+    
+</body>
+</html>

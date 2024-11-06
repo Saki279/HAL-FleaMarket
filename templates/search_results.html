@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>検索結果</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+
+  </head>
+  
+  <body>
+  
+    {% block content %}
+
+        <main id="m-result">
+
+            <div class="contain">
+            
+              <!-- <div class="search_container"> -->
+              
+                {% for item in items %}
+              
+                  {% if loop.index % 4 == 1 %}
+                    {% if loop.index != 1 and loop.index // 4 % 2 == 1 %}
+                        <div class="search_container"></div>
+                    {% endif %}
+                    <div class="search_container">
+                  {% endif %}
+                    
+                  <div class="card">
+                    <div class='card_inner'>
+                      {% if item.stock == 0 %}
+                        <div class="mask-soldout" id="soldout"><div class="soldout"><p>SOLD OUT</p></div></div>
+                      {% endif %}
+                      <a href="{{ url_for('product_detail', product_id=item.items_id) }}" style="text-decoration: none;">
+                        <div class='card_inner__circle'>
+                          <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                        </div>
+                        <div class='card_inner__header'>
+                          <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                        </div>
+                        <div class='card_inner__content'>
+                          <div class='title'>{{item.name}}</div>
+                          <div class='price'>¥{{item.price}}</div>
+                          <button class="cta">
+                              <span>View more</span>
+                              <svg viewBox="0 0 13 10" height="10px" width="15px">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                              </svg>
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {% if loop.index % 4 == 0 or loop.last %}
+                    </div>
+                  {% endif %}
+                  
+                {%endfor%}
+            
+            </div>
+
+        </main>
+
+      <!-- </div> -->
+
+      {% endblock %}
+
+    <!--=============JS ===============--> 
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!--機能編　6-1-6 複数画像を並列に見せる-->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  </body>
+  
+</html>
+<!-- 後藤早輝 -->

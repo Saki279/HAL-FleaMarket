@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+
+</head>
+<body>
+
+    {% block content %}
+
+    <main id="m-zoom">
+
+    <div class="container">
+        <div class="left">
+            <form class="form" action="/join_meeting" method="post">
+                <figure class="zoom_logo">
+                    <img src="../static/images/zoom.png" alt="zoom">
+                </figure>
+                <div class="input-block" style="margin-top: 100px;">
+                    <input class="input" type="text" id="meeting_id" required="" name="meeting_id">
+                    <label for="meeting_id">RoomID</label>
+                </div>
+                <!-- <div class="input-block">
+                    <input class="input" id="user_name" required="" name="user_name">
+                    <label for="user_name"></label>
+                </div> -->
+                <div class="input-block">
+                    <button>参加</button>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <div class="img">
+                <img src="../static/images/bird.png" alt="とり">
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+    {% endblock %}
+
+    <!-- jQueryへのリンク -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    
+</body>
+</html>
+<!-- 後藤早輝 -->

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+    <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>検索結果</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+
+    </head>
+
+    <body>
+
+    {% block content %}
+	<main>
+		<section class="item_container">
+			<div class="item" style="display: flex; padding-bottom: 3px; align-items: center; ">
+				<div class="item-image">
+					<img src="{{ products.image_url }}" alt="{{ products.name }}" >
+				</div>
+				<div class="item-info" style="display: flex;">
+					<div>
+						<h1 class="item-title">{{ products.name }}</h1>
+						<p class="item_ditail_p" style="font-weight: bold; text-align: left;">＜商品の詳細＞</p>
+						<p style="max-width: 500px; height:100px; overflow:visible">{{ products.discription }}</p>
+						<p style="padding: 20px 0 ;text-align: left;"><span style="font-weight: bold;">値段: </span>¥{{ products.price }} <span style="font-size: 0.5rem; ">手数料抜き</span> </p>
+						<div style="display: flex;">
+							<form action="{{ url_for('add_to_cart', item_id=products.items_id) }}" method="post" class="in_cart" style="width: 300px;">
+								<button type="submit" class="cart-btn">カートに入れる<i class = "fas fa-shopping-cart" style="margin-bottom: 5px;"></i></button>
+							</form>
+							<form action="{{ url_for('chat',item_id=products.items_id) }}" >
+								<button class="cart-btn" style="width: 100px;">
+									chat<i style="padding: 0 3px;" class="fa-brands fa-rocketchat"></i>
+								</button>
+							</form>
+						</div>
+						
+
+					</div>
+					<div>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+    {% endblock %}
+    </body>
+</html>
+
+<!--川上奏大-->

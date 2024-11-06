@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>検索結果</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+
+    
+
+  </head>
+  
+  <body>
+  
+    {% block content %}
+
+    <main id="m-result">
+
+      <div class="contain">
+
+          {% for product in products %}
+
+            {% if loop.index % 4 == 1 %}
+              {% if loop.index != 1 and loop.index // 4 % 2 == 1 %}
+                  <div class="search_container"></div>
+              {% endif %}
+              <div class="search_container">
+            {% endif %}
+
+            <div class="card">
+              <div class='card_inner'>
+                {% if product.stock == 0 %}
+                  <div class="mask-soldout" id="soldout"><div class="soldout"><p>SOLD OUT</p></div></div>
+                {% endif %}
+                <!-- テストコード -->
+                <!-- <p>{{ product.stock }}</p> -->
+                <a href="{{ url_for('product_detail', product_id=product.items_id) }}" style="text-decoration: none;">
+                  <div class='card_inner__circle'>
+                    <!-- <img src="{{ product.image_url }}" alt="{{ product.name }}"> -->
+                  <object>
+                    <a href="{{ url_for('profile')}}"><img src="{{ product.image_url }}" alt="{{ product.name }}"></a>
+                  </object>
+                  </div>
+                  <div class='card_inner__header'>
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                  </div>
+                  <div class='card_inner__content'>
+                    <div class='title'> {{ product.name }} </div>
+                    <div class='price'>¥{{ product.price }}</div>
+                    <button class="cta">
+                      
+                        <span>View more</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                          <path d="M1,5 L11,5"></path>
+                          <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </button>
+                  </a>
+                  </div>
+              </div>
+            </div>
+
+            {% if loop.index % 4 == 0 or loop.last %}
+              </div>
+            {% endif %}
+
+          {%endfor%}
+
+      </div>
+
+    </main>
+
+      <!-- <main id="m-result">
+        <div class="show_all_container">
+            {% for product in products %}
+                  <div class="product">
+                    {% if product.stock == 0 %}
+                      <div class="mask-soldout" id="soldout"><div class="soldout"><p>SOLD OUT</p></div></div>
+                    {% endif %}
+                    
+                      <a href="{{ url_for('product_detail', product_id=product.items_id) }}">
+                        <p>{{ product.stock }}</p>
+                          <figure>
+                              <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width: 200px;">
+                          </figure>
+                          <h2>{{ product.name }}</h2>
+                          <p>{{ product.discription }}</p>
+                          <hr>
+                          <p>￥{{product.price }}</p>
+                      </a>
+                  </div>
+            {% endfor %}
+        </div>
+      </main> -->
+
+  {% endblock %}
+  </body>
+  
+</html>
+<!-- 後藤早輝 -->

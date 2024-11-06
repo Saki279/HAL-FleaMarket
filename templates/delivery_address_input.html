@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {% block title %}<title>配送先</title>{% endblock %}
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+        
+
+
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+
+        <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+
+
+    </head>
+    <body>
+
+      {% block content %}
+
+        <div id="wrap">
+
+            <main id="m-address">
+
+              <div class="purchase">
+                <img src="../static/images/plant.png" alt="">
+                <div>
+                  <h1>Purchase</h1>
+                  <h2>購入情報</h2>
+                </div>
+                <img src="../static/images/plant2.png" alt="">
+              </div>
+                
+              <div id="steps">
+                <div class="step done" data-desc="支払方法選択"><i class="fa-solid fa-check" style="color: #ffffff;"></i></div>
+                <div class="step active" data-desc="配送先入力">2</div>
+                <div class="step" data-desc="情報確認">3</div>
+                <div class="step" data-desc="決済完了">4</div>
+              </div>
+
+              <form class='purchase_form' action="/address_form" method="post" enctype="multipart/form-data" onsubmit="return address_validateForm()">
+
+                <div class="pay_container">
+
+                  <figure class="plant">
+                    <img src="../static/images/address.png" alt="">
+                  </figure>
+                  
+                    <div class="card cart">
+                      <label class="title">配送先入力</label>
+                      <div class="details">
+                        <div class="detail">
+
+                          
+                          <div class="h-adr">
+                            <span class="p-country-name" style="display:none;">Japan</span>
+                            <div class="input-group">
+                              <label class="label">郵便番号：(例: 000-0000)</label>
+                              <div class="code">
+                                <input type="text" name="postal_code" class="p-postal-code" size="8" maxlength="8" placeholder="123-4567">
+                                <!-- <a href="https://www.post.japanpost.jp/zipcode/" class="btn-01 small" target="_blank">郵便番号検索</a>  -->
+                                <button type="button" class="postal-search">住所を検索する</button>
+                              </div>
+                    
+                            </div>    
+                            
+                            <div class="input-group">
+                              <label class="label">都道府県：</label>
+                              <input type="text" name="region" class="p-region" placeholder="○○県" />
+                            </div>
+                            
+                            <div class="input-group">
+                              <label class="label">市区町村：</label>
+                              <input type="text" name="locality" class="p-locality" placeholder="△△市" />
+                            </div>
+                            
+                            <div class="input-group">
+                              <label class="label">番地：</label>
+                              <input type="text" name="street_address" class="p-street-address" placeholder="1-1-1" />
+                            </div>
+                            
+                            <div class="input-group">
+                              <label class="label">以降の住所：</label>
+                              <input type="text" name="extended_address" class="p-extended-address" placeholder="1丁目○○マンション101号室" />
+                            </div>
+
+                          </div>
+
+                          <script>
+                            (function() {
+                              //該当フォーム
+                              var hadr = document.querySelector(".h-adr"), 
+                                  cancelFlag = true;
+                          
+                              //イベントをキャンセルするリスナ
+                              var onKeyupCanceller = function(e) {
+                                  if(cancelFlag){
+                                      e.stopImmediatePropagation();
+                                  }
+                                  return false;
+                              };
+                          
+                              // 郵便番号の入力欄
+                              var postalcode = hadr.querySelectorAll(".p-postal-code"),
+                                  postalField = postalcode[postalcode.length - 1];
+                          
+                              //通常の挙動をキャンセルできるようにイベントを追加
+                              postalField.addEventListener("keyup", onKeyupCanceller, false);
+                          
+                              //ボタンクリック時
+                              var btn = hadr.querySelector(".postal-search");
+                              btn.addEventListener("click", function(e) {
+                                  //キャンセルを解除
+                                  cancelFlag = false;
+                          
+                                  //発火
+                                  let event;
+                                  if (typeof Event === "function") {
+                                      event = new Event("keyup");
+                                  } else {
+                                      event = document.createEvent("Event");
+                                      event.initEvent("keyup", true, true);
+                                  }
+                                  postalField.dispatchEvent(event);
+                          
+                                  //キャンセルを戻す
+                                  cancelFlag = true;
+                              });
+                          })();
+                          </script>
+
+
+                        </div>
+                      </div>
+                    </div>
+                              
+                </div>
+                
+                <div class="next">
+                  <input type="submit" value="情報確認へ進む">
+                </div>
+
+              </form>
+            </main>
+
+        </div>
+
+        {% endblock %}
+
+        <!-- jQueryへのリンク -->
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+
+        <script src="https://kit.fontawesome.com/03cab5dff4.js" crossorigin="anonymous"></script>
+        <!-- JS -->
+        <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    
+    </body>
+
+</html>
+<!-- 後藤早輝 -->

@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ja" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>出品内容入力</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+    
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js "></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $('#datepicker1').calendar();
+          });
+       </script>
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-clockpicker.min.js') }}"></script>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <!-- <script type="text/javascript" src="../static/js/bootstrap-clockpicker.min.js"></script> -->
+    <script type="text/javascript">
+     $(function() {
+       $('.clockpicker').clockpicker();
+     });
+    </script>
+    
+</head>
+<body>
+    
+    {% block content %}
+    <div id="wrap">
+
+        <main id="m-input">
+
+            <div class="listing">
+                <figure class="flower1">
+                    <img src="../static/images/flower.gif"  alt="flower">
+                </figure>
+                <div>
+                    <h1>Listing</h1>
+                    <h2>出品内容入力</h2>
+                </div>
+                <figure class="flower2">
+                    <img src="../static/images/flower.gif"  alt="flower">
+                </figure>
+            </div>
+
+            <form  action="{{ url_for('add_product') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <div class="detail">
+
+                    <div class="card">
+                     <div class="tape-1">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.92 299.32" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><g id="_2766174952096"><path d="M10.86 9.67c43.35,-3.22 86.71,-6.45 130.06,-9.67 -6.64,101.67 -12.54,203.13 0,299.32 -46.32,-2.04 -92.65,-4.07 -138.97,-6.11 -5.07,-190.99 0.39,-255.64 8.91,-283.54z" class="fil-tape-10"></path><path d="M25.58 18.62c-0.02,0.34 -8.14,117.07 -7.13,155.71 1.02,38.7 0,102.67 0,102.85l-1.44 -0.02c0,-0.18 1.02,-64.13 0,-102.8 -1.02,-38.74 7.1,-155.5 7.13,-155.83l1.44 0.1zm88.58 53.95c-0.03,0.54 -11.21,187.47 -16.35,198.78l-1.31 -0.59c5.04,-11.08 16.2,-197.74 16.23,-198.28l1.44 0.08zm-18.32 -54l0 62.1 -1.44 0 0 -62.1 1.44 0zm-24.44 -1c-0.02,0.71 -7.5,249.12 -8.14,263.7l-1.44 -0.06c0.64,-14.62 8.12,-262.96 8.14,-263.68l1.44 0.04zm-25.45 -0.01l-1.02 59.07c-0.03,0.52 -9.16,181.13 -7.14,191.23l-1.42 0.28c-2.05,-10.26 7.09,-191.06 7.12,-191.58l1.02 -59.03 1.44 0.02z" class="fil-tape-11" style="z-index: 1000000;"></path></g></g></svg>
+                     </div>
+                     <div class="tape-2">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 178.8 470.05" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"></metadata><g id="_2766172114016"><path d="M12 0c55.6,8.84 111.2,17.69 166.79,26.54 -14.35,216.21 -8.24,321.98 -5.05,443.52 -57.91,-2.74 -115.83,-5.48 -173.74,-8.21 13.79,-254.59 21.83,-450.07 12,-461.84z" class="fil-tape-20"></path><path d="M46.38 22.01c0.04,0.33 12.64,115.04 11.38,149.23l-1.78 -0.06c1.26,-34.04 -11.33,-148.64 -11.37,-148.97l1.78 -0.2zm94.77 78.46c-0.02,0.79 -6.32,275.54 -11.38,308.43l-1.77 -0.27c5.05,-32.82 11.35,-307.41 11.37,-308.2l1.78 0.04zm-25.27 -69.45c-0.08,1.13 -27.78,392.77 -21.55,407.73l-1.65 0.69c-6.4,-15.36 21.33,-407.42 21.41,-408.54l1.78 0.13zm-89.71 245.07c0,0.42 1.26,147.7 5.01,158.94l-1.69 0.56c-3.83,-11.5 -5.1,-159.06 -5.1,-159.48l1.78 -0.01zm50.17 -227.37c-0.04,0.98 -13.9,340.03 -20.22,391.85l-3.55 -0.42c6.31,-51.79 20.17,-390.6 20.21,-391.57l3.57 0.14z" class="fil-tape-21"></path></g></g></svg>
+                     </div>
+                        <div class="shine">
+                        
+                            <div class="mybox product">
+
+                                <div class="box">
+                                    <!-- <h3>画像選択</h3>  -->
+
+                                    <div class="modal__body">
+                                    
+                                        <div    class="container1"> 
+                                    <div class="picture" id="area"> 
+                                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+                                        <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> <p>選択されていません</p>
+                                    </div> 
+                                    <label for="file" class="footer"> 
+                                      <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg> 
+                                      <p>画像をアップロード</p> 
+                                    </label>
+                                    <input id="file" type="file" name="image" onchange="preview(this)"> 
+                                    <div class="preview-area"></div>
+                                    <script>
+                                        function preview(elem) {
+    
+                                            const areaElement = document.getElementById('area');
+                                            areaElement.parentNode.removeChild(areaElement);
+    
+                                            const file = elem.files[0]
+                                            const image = `<img src=${URL.createObjectURL(file)}>`
+                                            elem.nextElementSibling.innerHTML = image 
+                                        }
+                                    </script>
+
+                                    <div class="category">
+                                        <div class="select animated zoomIn">
+                                            <label class="input__label" style="margin-bottom: 10px;">カテゴリ</label>
+                                            <input type="radio" name="option">
+                                            <i class="toggle icon icon-arrow-down"></i>
+                                            <i class="toggle icon icon-arrow-up"></i>
+                                            <span class="placeholder">Choose...</span>
+                                            <label class="option">
+                                                <input type="radio" name="option" value="1">
+                                                <span class="c_title animated fadeIn"><i class="icon icon-cup"></i>家具＆キッチン</span>
+                                            </label>
+                                            <label class="option">
+                                                <input type="radio" name="option" value="2">
+                                                <span class="c_title animated fadeIn"><i class="icon icon-eyeglass"></i>衣類＆アクセサリー</span>
+                                            </label>
+                                            <label class="option">
+                                                <input type="radio" name="option" value="3">
+                                                <span class="c_title animated fadeIn"><i class="icon icon-directions"></i>ガーデニング＆屋外</span>
+                                            </label>
+                                            <label class="option">
+                                                <input type="radio" name="option" value="4">
+                                                <span class="c_title animated fadeIn"><i class="icon icon-emotsmile"></i>キッズ＆ベビー</span>
+                                            </label>
+                                            <label class="option">
+                                                <input type="radio" name="option" value="5">
+                                                <span class="c_title animated fadeIn"><i class="icon icon-social-github"></i>ペット用品</span>
+                                            </label>
+                                            <label class="option">
+                                                <input type="radio" name="option" value="6">
+                                                <span class="c_title animated fadeIn"><i class="icon icon-globe-alt"></i>エコフレンドリー＆サステナブル</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="input day">
+
+                                        <div class="sel">
+                                            <label class="input__label">日付選択</label>
+                                            <input type="text" name="meeting_date_date" id="dt" class="input__field" style="width: 310px;" placeholder="日付を選択してください" >
+                                        
+                                            <div id="dd" class="posi" style="position: absolute !important; 
+                                            top:0 !important;
+                                            left:0 !important;"></div>
+                                            <script>
+                                            $('#dd').calendar({
+                                            
+                                                trigger:'#dt',
+                                                <!-- offset: [-700,-660],  -->
+                                                width:350,
+                                                height:350
+                                                ,weekArray :['日','月','火','水','木','金','土']
+                                                ,prev:'&lt;',
+                                                next:'&gt;'
+                                                ,customClass:'customCalendar',
+                                            });
+                                            </script>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="input-group clockpicker col-sm-2 input">
+                                        <div class="sel">
+                                            <label class="input__label">時間選択</label>
+                                            <input type="text" name="meeting_date_time" class="form-control input__field"  placeholder="時間を選択してください">
+                                            <script type="text/javascript">
+                                                $('.clockpicker').clockpicker();
+                                            </script>
+                                        </div>
+                                    </div>
+
+                                        </div>   
+
+
+                                        <div    class="container2">
+
+                                    <div class="input">
+                                        <label class="input__label">商品名</label>
+                                        <input class="input__field" type="text" name="name" style="width: 840px;"> 
+                                        <p class="input__description">最大20文字</p>
+                                    </div>
+                                    <div class="input" style="margin-top: 2.1rem;">
+                                        <label class="input__label">商品の説明</label>
+                                        <textarea class="input__field input__field--textarea" name="description" id="description" rows="3" onkeyup="ShowLength(value);"
+                                            style="resize: none; width:840px; line-height:1.2rem;"></textarea>
+                                        <p class="input__description">品質、素材、付属品の有無のほか、商品の魅力や特徴を記載してください。</p>
+                                        <p id="inputlength">0文字</p>
+                                    </div>
+                                
+                                    <div class="price">
+                                        <div class="input" style="box-shadow: 0px 1em 1em -1.5em rgba(0, 0, 0, 0.5); height:100%;">
+                                            <label class="input__label">販売価格</label>
+                                            <input class="input__field money" type="text" id="priceInput" placeholder="¥" name="price"> 
+                                        </div>
+                                        <div class="input" style="box-shadow: 0px 1em 1em -1.5em rgba(0, 0, 0, 0.5);">
+                                            <label class="input__label">販売手数料(5%)</label>
+                                            <p id="commissionDisplay" class="price-area" style="width: 240px; height:57px;"></p>
+                                        </div>
+                                        <div class="input" style="box-shadow: 0px 1em 1em -1.5em rgba(0, 0, 0, 0.5);">
+                                            <label class="input__label">販売利益</label>
+                                            <p id="profitDisplay" class="price-area" style="width: 240px; height:57px;"></p>
+                                        </div>
+                                    </div>
+                                
+                                    <script>
+                                        var priceInput = document.getElementById('priceInput');
+                                        var commissionDisplay = document.getElementById('commissionDisplay');
+                                        var profitDisplay = document.getElementById('profitDisplay');
+
+                                        priceInput.addEventListener('input', function() {
+                                            var priceValue = priceInput.value;
+
+                                            // もし先頭に「￥」がない場合は追加
+                                            //if (!priceValue.startsWith('¥')) {
+                                            //    priceValue = '¥ ' + priceValue;
+                                            //    priceInput.value = priceValue;
+                                            //}
+                                            
+                                            var regex = /^[0-9]+$/;
+                                            var price = parseFloat(priceInput.value.replace('¥', '').replace(',', ''));
+                                            if (!isNaN(price)) {
+                                                var commission = Math.ceil(price * 0.05);  
+                                                var profit = price - commission;
+                                            
+                                                
+                                                commissionDisplay.textContent = '¥ ' + commission.toLocaleString();
+                                                profitDisplay.textContent = '¥ ' + profit.toLocaleString();
+                                            } else {
+                                                commissionDisplay.textContent = '';
+                                                profitDisplay.textContent = '';
+                                            }
+                                        });
+                                    </script>
+                                        </div>
+                                    
+                                    </div>
+
+                                </div>
+                            
+                            </div>
+
+                        </div>
+                        <div class="tree">
+                            <img src="../static/images/dryflower.png"  alt="dryflower">
+                        </div>
+                        
+
+                        <div class="fancy">
+                        <input type="submit" value="出品する" >
+                        <span class="top-key"></span>
+                        <span class="bottom-key-1"></span>
+                        <span class="bottom-key-2"></span>
+                    </div>
+
+                    </div>
+
+                
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+    
+
+    {% endblock %}
+
+    <!-- jQueryへのリンク -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/03cab5dff4.js" crossorigin="anonymous"></script>
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+
+
+</body>
+</html>
+<!-- 後藤早輝 -->

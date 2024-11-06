@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <link rel="stylesheet" href="../static/css/reset.css" />
+  <link rel="stylesheet" href="../static/css/login.css" />
+  <link rel="stylesheet" href="../static/js/common.js" />
+
+</head>
+<body>
+  <main id="m-login">
+    <div style="width:1000px; position: absolute; top:50%; left:50%; transform: translate(-50%, 0)">
+    <div class="cont">
+      <div class="form sign-in">
+        <h2>ログイン</h2>
+        <form action="/login" method="POST">
+          <label>
+            <span>メールアドレス</span>
+            <input type="email" name="email" required/>
+          </label>
+          <label>
+            <span>パスワード</span>
+            <input type="password" name="password" maxlength="10" minlength="4" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*" 
+            title="大文字、小文字、数字をそれぞれ含む4文字以上10文字以下のパスワードを入力してください。" required/>
+          </label>
+
+          <button type="submit" class="submit" style="margin-top: 50px;">サインイン</button>
+        </form>
+        {% if err %}
+        <p>{{ err }}</p>
+        {% endif %}
+      </div>
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img__text m--up">
+            <h2>新しくアカウントを作成しますか?</h2>
+          </div>
+          <div class="img__text m--in">
+            <h2>既にアカウントをお持ちですか？</h2>
+          </div>
+          <div class="img__btn">
+            <span class="m--up"><a href="top.html">サインアップ</a></span>
+            <span class="m--in"><a href="top.html">サインイン</a></span>
+          </div>
+          <script>
+            document.querySelector(".img__btn").addEventListener("click", function () {
+              document.querySelector(".cont").classList.toggle("s--signup");
+            });
+          </script>
+        </div>
+
+        <div class="form sign-up">
+          <h2>アカウント作成</h2>
+          <form action="/signin" method="POST">
+            <label>
+              <span>名前</span>
+              <input type="text" name="name" required/>
+            </label>
+            <label>
+              <span>メールアドレス</span>
+              <input type="email" name="email" required/>
+            </label>
+            <label>
+              <span>パスワード</span>
+              <input type="password" name="password" maxlength="10" minlength="4" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*" 
+              title="大文字、小文字、数字をそれぞれ含む4文字以上10文字以下のパスワードを入力してください。" required/>
+            </label>
+            <label>
+              <span>電話番号</span>
+              <input type="text" name="phonenumber" maxlength="13" minlength="10" pattern="[0-9]*"  required/>
+            </label>
+            <label>
+              <span>国/地域</span>
+              <select type="password" name="aria" required>
+                <option value="" disabled selected hidden>選択してください</option>
+                <option value="1">japan</option>
+                <option value="2">Australia</option>
+                <option value="3">U.K</option>
+                <option value="4">U.A</option>
+                <option value="5">China</option>
+              </select>
+            </label>
+            <button type="submit" class="submit">サインアップ</button>
+          </form>
+          {% if error %}
+          <p>{{ error }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="../static/js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+{% extends "base.html" %} <!DOCTYPE html>
+<!-- test -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>header template</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+JP%7CParisienne&display=swap"
+      rel="stylesheet"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    /> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/4-14/css/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/4-14/css/4-14.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css"
+    />
+
+    <!-- 4つのボタンのフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+                        
+    <!-- <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/8-1-1/css/8-1-1.css"> -->
+
+    <link rel="stylesheet" href="../static/css/index.css" />
+
+    <!-- ーーーflask設定ーーー -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <a id="banner" href="#"></a>
+    <!-- Main body -->
+
+    <header>
+      <a id="nav-top"></a>
+
+      <div id="nav-belt">
+        <div class="nav-left">
+          <div id="nav-logo">
+            <a href="#" class="nav-logo-link"></a>
+          </div>
+        </div>
+
+        <div class="nav-fill">
+          <div class="asd">
+            <div id="nav-search">
+              <form action="/search" method="post">
+                <div class="nav-left">
+                  <span class="nav-search-label">すべて</span>
+                  <i class="fa fa-caret-down" aria-hidden="true"></i>
+                  <select id="nav-search-select">
+                    <option selected="selected" value="aps">
+                      All Departments
+                    </option>
+                  </select>
+                </div>
+                <div class="nav-right">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  <!-- <input type="submit" class="input-size" /> -->
+                </div>
+                <div class="nav-fill">
+                  <input type="text" autocomplete="off" name="text" />
+                </div>
+              </form>
+            </div>
+            <nav id="nav-main">
+              <div class="nav-right">
+                <a class="nav-a" href="#"
+                  >アカウント<i class="fa fa-caret-down" aria-hidden="true"></i
+                ></a>
+                <a class="nav-a" href="#"> お知らせ </a>
+                <a class="nav-a" href="#"
+                  >購入履歴<i class="fa fa-caret-down" aria-hidden="true"></i
+                ></a>
+                <a class="nav-a cart" href="#"><span>0</span>カート</a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% block content %}
+    
+    <div class="main_header">
+      <div id="slideshow">
+        <img class="slide visible" src="../static/images/slide1.jpg" alt="スライド1">
+        <img class="slide" src="../static/images/slide2.jpg" alt="スライド2">
+      </div>
+      <script>
+        let current = 0;
+        const slides = document.querySelectorAll(".slide");
+        setInterval(() => {
+          // 現在の画像を非表示にする
+          slides[current].classList.remove("visible");
+          // 次の画像に切り替える
+          current = (current + 1) % slides.length;
+          slides[current].classList.add("visible");
+        }, 5000);
+      </script>
+      <h1>
+        <span>H</span>
+        <span>o</span>
+        <span>c</span>
+        <span>c</span>
+        <span>o</span>
+      </h1>
+      <!-- <p class="main_header_class" id="main_header_name">Hocco</p> -->
+      <!-- <svg
+        class="header_wave"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 -80 1440 320"
+      >
+        <path
+          fill="#fcf6e6"
+          fill-opacity="1"
+          d="M0,0L30,26.7C60,53,120,107,180,138.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,122.7C780,96,840,64,900,69.3C960,75,1020,117,1080,128C1140,139,1200,117,1260,128C1320,139,1380,181,1410,202.7L1440,224L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg> -->
+    </div>
+
+    <!-- <div class="wave_zone" style="margin-top: 450px;"></div> -->
+    <div style="margin-top: 750px;">
+      <figure class="sticker" style="margin-top: 550px;">
+        <img src="../static/images/Flower_Sticker.gif" alt="Flower_Sticker">
+        <img src="../static/images/Flower_Sticker.gif" alt="Flower_Sticker">
+        <img src="../static/images/Flower_Sticker.gif" alt="Flower_Sticker">
+      </figure>
+      <div class="demo_44-1">
+        <div class="demo_44-2">
+            <a href="{{ url_for('add_product') }}">出品</a>
+        </div>
+        <div class="demo_44-3">
+          <a href="{{ url_for('zoom') }}">DIY<br>ディスカッション</a>
+        </div>
+        <div class="demo_44-4">
+          <a href="{{ url_for('ctg_search_03') }}">屋外<br>ガーデニング</a>
+        </div>
+        <div class="demo_44-5">
+          <a href="{{ url_for('ctg_search_01') }}">家具<br>キッチン</a>
+        </div>
+      </div>
+    </div>
+
+    <main id="container">
+      <figure class="butterfly">
+        <img src="../static/images/butterfly.gif" alt="ちょうちょ">
+      </figure>
+      <div class="custom-shape-divider-bottom-1708784369">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
+      <article id="lead" class="inner zoomOutTrigger">
+        <div class="lead-img fadeInTrigger"></div>
+        <div class="lead-area fadeInTrigger">
+          <h2>自分で作ってみる<br />ただそれだけなのに<br />なんかほっこり</h2>
+          <p>
+            新鮮な木の匂い<br />触れる糸の柔らかさ<br />出来上がったモノの温もり<br />この体験を特別な物に<br /><br />あなたも今から<br />ほっこりしてみませんか？
+          </p>
+          <div class="lead-btn" style="z-index: 100;">
+            <a href="{{ url_for('show_all') }}" class="btn04 bordertop"
+              ><span>商品一覧</span></a
+            >
+          </div>
+        </div>
+      </article>
+
+
+      <div class="in_detail">
+        <figure class="cactus1">
+            <img src="../static/images/cactus.gif"  alt="flower">
+        </figure>
+        <div>
+          <h1>Products</h1>
+          <h2>商品</h2>
+        </div>
+        <figure class="cactus2">
+            <img src="../static/images/cactus.gif"  alt="flower">
+        </figure>
+      </div>
+
+      <div class="slide_container">
+        <!-- <div class="slider2"> -->
+          <div class="slider fadeInTrigger" style="display: flex;">
+            {% for product in products[:3] %}
+            <div>
+              {% if product.stock == 0 %}
+                <div class="mask-soldout" id="soldout"><div class="soldout"><p>SOLD OUT</p></div></div>
+              {% endif %}
+              <a href="{{ url_for('product_detail', product_id=product.items_id) }}">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}"/>
+                <!-- <img src="{{ product.image_url }}" alt="{{ product.name }}" style="width: 100%;"/> 最終修正用 -->
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        <!-- </div> -->
+      </div>
+
+      <div class="a-template"></div>
+
+      <article id="news">
+        <h2>News</h2>
+
+        <ul class="accordion-area">
+          <li>
+            <section>
+              <h3 class="title2">2024/01/27　　　今なら対象の作品が30%OFF</h3>
+            </section>
+          </li>
+          <li>
+            <section>
+              <h3 class="title2">2024/01/01　　　新春キャンペーン実施！</h3>
+            </section>
+          </li>
+          <li>
+            <section>
+              <h3 class="title2">2023/12/31　　　よいお年をお迎えください</h3>
+            </section>
+          </li>
+          <li>
+            <section>
+              <h3 class="title2">
+                2023/12/24　　　クリスマスキャンペーン実施！
+              </h3>
+            </section>
+          </li>
+        </ul>
+      </article>
+    </main>
+
+    {% endblock %}
+
+    <!-- ーーーーーーーーーーーーーーーーーーーー -->
+
+    <footer>
+      <div class="top text-center">
+        <p id="page-top">
+          <a href="#nav-top">一番上に戻る</a>
+        </p>
+      </div>
+      <div class="middle">
+        <div class="center">
+          <ul class="copy text-center">
+            <li>&copy; 2023. Hocco All rights reserved.</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../static/js/common.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/js/6-1-7.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/js/3-2-3-1.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/4-14/js/4-14.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/8-1-1/js/8-1-1.js"></script>
+  </body>
+</html>
